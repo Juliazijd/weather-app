@@ -36,10 +36,10 @@
                     </form>
                 </div>
         </div>
-        <h3 class="city-date-header"><strong>Amsterdam</strong><span id="current-time"> - Friday 13:00</span></h3>
+        <h3 class="city-date-header"><strong id="city">Amsterdam</strong><span id="current-time"> - Friday 13:00</span></h3>
         <div class="row">
           <div class="col-5 current-weather">
-            <h4 class="weather-description">Cloudy</h4>
+            <h4 id="description">Cloudy</h4>
             <img
               src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
               alt="Cloudy"
@@ -48,9 +48,9 @@
               <span id="units">°C|°F</span>
             </span>
             <ul class="current-conditions">
-              <li>Feels like: 17°C</li>
-              <li>Humidity: 83%</li>
-              <li>Windspeed: 27km/h</li>
+              <li>Feels like: <span id="feels-like-temp">17</span>°C</li>
+              <li>Humidity: <span id="humidity">83</span>%</li>
+              <li>Windspeed: <span id="windspeed">27</span>km/h</li>
               <li>Visibility: 10.0km</li>
             </ul>
           </div>
