@@ -9,36 +9,60 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Weathermood</title>
   </head>
   <body>
     <div class="container">
       <div class="weather-app">
+        <div class="row" id="search-engine">
+                <div class="col-5">
+                    <input type="submit" value="Check current location" class="button-search-current" />
+                    </form>
+                </div>
+                or
+        <div class="col-4">
+          <form class="search-form">
+            <input type="search" placeholder="Enter a city..." class="search-input"/>
+          </form>
+        </div>
+                <div class="col-2">
+                        <input type="submit" value="search" class="submit-button"/>
+                    </form>
+                </div>
+        </div>
+        <h3 class="city-date-header"><strong>Amsterdam</strong><span id="current-time"> - Friday 13:00</span></h3>
         <div class="row">
-          <div class="col-6">
-            <h3><strong>Amsterdam</strong></h3>
-            <h4>Friday 13:00</h4>
-            <h4>Cloudy</h4>
+          <div class="col-5 current-weather">
+            <h4 class="weather-description">Cloudy</h4>
             <img
               src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
               alt="Cloudy"
-            /><span>19 °C|°F</span>
-            <ul class="current-weather">
+            /><span>
+              <strong id="current-temp">19</strong>
+              <span id="units">°C|°F</span>
+            </span>
+            <ul class="current-conditions">
               <li>Feels like: 17°C</li>
               <li>Humidity: 83%</li>
               <li>Windspeed: 27km/h</li>
               <li>Visibility: 10.0km</li>
             </ul>
           </div>
-          <div class="col-6">
-            <h3>Forecast</h3>
+          <div class="col-7">
+            <h4 class="forecast-header">Forecast</h4>
             <ul class="forecast">
               <li>
                 Saturday 17°C
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/48/rain_light.png"
                   alt="rainy"
+                  class="icon"
                 />19km/h
               </li>
               <li>
@@ -46,6 +70,7 @@
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png"
                   alt="heavy-rain"
+                  class="icon"
                 />35km/h
               </li>
               <li>
@@ -53,6 +78,7 @@
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/48/rain_light.png"
                   alt="rainy"
+                  class="icon"
                 />29km/h
               </li>
               <li>
@@ -60,6 +86,7 @@
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/48/rain_light.png"
                   alt="rainy"
+                  class="icon"
                 />24km/h
               </li>
               <li>
@@ -67,6 +94,7 @@
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/48/rain_light.png"
                   alt="rainy"
+                  class="icon"
                 />24km/h
               </li>
             </ul>
