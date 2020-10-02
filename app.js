@@ -1,3 +1,14 @@
+function getTime (timestamp) {
+    let currentTime = new Date(timestamp);
+    let hours = currentTime.getHours();
+    if (hours < 10) {
+        hours = `0${hours}`;
+    let minutes = currentTime.minutes();
+        if (minutes < 10) {
+            minutes = `0${hours}`;
+
+}
+
 function displayWeather(response) {
   console.log(response.data);
   let city = document.querySelector("#city");
@@ -6,6 +17,7 @@ function displayWeather(response) {
   let feelsLikeTemp = document.querySelector("#feels-like-temp");
   let humidity = document.querySelector("#humidity");
   let windSpeed = document.querySelector("#windspeed");
+  let currentTime = document.querySelector("#current-time");
 
   city.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
@@ -13,6 +25,7 @@ function displayWeather(response) {
   feelsLikeTemp.innerHTML = Math.round(response.data.main.feels_like);
   humidity.innerHTML = response.data.main.humidity;
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  currentTime.innerHTML = getTime(response.data.dt * 1000);
 }
 
 let apiKey = "427b64eee1edb35b88796269421b55f1";
