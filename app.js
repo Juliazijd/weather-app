@@ -12,7 +12,6 @@
 //        }
 
 function displayWeather(response) {
-  console.log(response.data);
   let city = document.querySelector("#city");
   let description = document.querySelector("#description");
   let temperature = document.querySelector("#current-temp");
@@ -45,3 +44,5 @@ function handleSubmit(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
+
+search("Amsterdam");
