@@ -1,15 +1,15 @@
-function getTime(timestamp) {
-    let currentTime = new Date(timestamp);
-    let hours = currentTime.getHours();
-    if (hours < 10) {
-        hours = `0${hours}`;
-        let minutes = currentTime.minutes();
-        if (minutes < 10) {
-            minutes = `0${hours}`;
-            let day = currentTime.getDay();
-
-            return `- ${day} ${hours}:${minutes}`;
-        }
+//function getTime(timestamp) {
+//    let currentTime = new Date(timestamp);
+//    let hours = currentTime.getHours();
+//    if (hours < 10) {
+//        hours = `0${hours}`;
+//        let minutes = currentTime.minutes();
+//        if (minutes < 10) {
+//            minutes = `0${hours}`;
+//            let day = currentTime.getDay();
+//
+//            return `- ${day} ${hours}:${minutes}`;
+//        }
 
 function displayWeather(response) {
   console.log(response.data);
@@ -27,10 +27,21 @@ function displayWeather(response) {
   feelsLikeTemp.innerHTML = Math.round(response.data.main.feels_like);
   humidity.innerHTML = response.data.main.humidity;
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
-  currentTime.innerHTML = getTime(response.data.dt * 1000);
+  currentTime.innerHTML = ` - Monday 15:00`;
+  //getTime(response.data.dt * 1000);
 }
 
-let apiKey = "427b64eee1edb35b88796269421b55f1";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Amsterdam&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = "427b64eee1edb35b88796269421b55f1";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeather);
+}
 
-axios.get(apiUrl).then(displayWeather);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-input");
+  search(cityInput.value);
+}
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
