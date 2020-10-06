@@ -140,9 +140,9 @@ function displayForecast(response) {
   forecast = response.data.list[4];
   forecastElement.innerHTML += `
                   <div class="col-2">
-                  <h4 id="forecast-hours">${displayForecastHours(
+                  <h5 id="forecast-hours">${displayForecastHours(
                     forecast.dt * 1000
-                  )}</h4>
+                  )}</h5>
                   <img
                     src="http://openweathermap.org/img/wn/${
                       forecast.weather[0].icon

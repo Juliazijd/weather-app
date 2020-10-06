@@ -29,6 +29,7 @@
                 class="search-input w-100"
                 id="search-input"
                 autocomplete="off"
+                autofocus="on"
               />
             </div>
             <div class="col">
@@ -45,20 +46,17 @@
           </div>
         </form>
         <h3 class="city-header">
-          <strong id="city"></strong>
+          <strong id="city"></strong><span class="last-updated-time float-right"><span id="current-time"></span> (last updated)</span>
         </h3>
-        <div class="last-updated-time">
-          Last updated: <span id="current-time"></span>
-        </div>
         <div class="row">
-          <div class="col-6 current-weather">
+          <div class="col-4 current-weather">
             <h4 id="description">Cloudy</h4>
             <img src=" " alt="Cloudy" id="weather-icon" /><span>
               <strong id="current-temp">19</strong>
               <span id="units">°C|°F</span>
             </span>
           </div>
-            <div class="col-6">
+            <div class="col-8">
               <ul class="current-conditions">
                 <li>Feels like: <span id="feels-like-temp"></span>°C</li>
                 <li>Humidity: <span id="humidity"></span>%</li>
@@ -66,11 +64,12 @@
               </ul>
             </div>
           </div>
+          <h4 class="forecast-header">Forecast</h4>
             <div class="row forecast" id="forecast"></div>
           </div>
         </div>
       </div>
-      <div class="source-link">Open source code by Julia Zijderveld</div>
+      <footer><a href="https://https://inspiring-swirles-35f983.netlify.app" target="_blank" class="source-link">Open source code</a> by Julia Zijderveld</footer>
     </div>
     <script src="app.js"></script>
   </body>
