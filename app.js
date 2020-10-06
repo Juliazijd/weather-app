@@ -29,6 +29,7 @@ function displayWeather(response) {
   let humidity = document.querySelector("#humidity");
   let windSpeed = document.querySelector("#windspeed");
   let currentTime = document.querySelector("#current-time");
+  let weatherIcon = document.querySelector("#weather-icon");
 
   city.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
@@ -37,6 +38,10 @@ function displayWeather(response) {
   humidity.innerHTML = response.data.main.humidity;
   windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.29084);
   currentTime.innerHTML = getTime(response.data.dt * 1000);
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function search(city) {

@@ -46,10 +46,16 @@ h4 {
   transition: ease-in-out;
 }
 
-.city-date-header {
+.city-header {
   margin: 0;
   font-size: 40px;
 }
+
+.last-updated-time {
+  line-height: 10px;
+  font-size: 15px;
+}
+
 #current-temp {
   font-size: 50px;
   font-weight: 500;
@@ -88,13 +94,10 @@ ul {
   bottom: 120px;
   color: purple;
   position: relative;
-  padding: 0 20px;
+  padding: 0 40px;
+  min-width: 100%;
 }
 
 .source-link {
-  text-align: left;
-}
-
-.last-updated-time {
-  text-align: right;
+  text-align: center;
 }
