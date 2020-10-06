@@ -35,9 +35,8 @@ function displayWeather(response) {
   temperature.innerHTML = Math.round(response.data.main.temp);
   feelsLikeTemp.innerHTML = Math.round(response.data.main.feels_like);
   humidity.innerHTML = response.data.main.humidity;
-  windSpeed.innerHTML = Math.round(response.data.wind.speed);
-  currentTime.innerHTML = ` - Monday 15:00`;
-  //getTime(response.data.dt * 1000);
+  windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.29084);
+  currentTime.innerHTML = getTime(response.data.dt * 1000);
 }
 
 function search(city) {
@@ -52,7 +51,22 @@ function handleSubmit(event) {
   search(cityInput.value);
 }
 
+function handlePosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "427b64eee1edb35b88796269421b55f1";
+  let apiUrlCurrentLocation = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlCurrentLocation).then(displayWeather);
+}
+
+function getPosition() {
+  navigator.geolocation.getCurrentPosition(handlePosition);
+}
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
-search("Amsterdam");
+let currentLocationButton = document.querySelector("#search-current-location");
+currentLocationButton.addEventListener("click", getPosition);
+
+search("New York");
