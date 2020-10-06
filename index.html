@@ -27,6 +27,7 @@
                 type="submit"
                 value="Check current location"
                 class="button-search-current"
+                id="search-current-location"
               />
             </div>
             or
@@ -45,8 +46,7 @@
           </div>
         </form>
         <h3 class="city-date-header">
-          <strong id="city">Amsterdam</strong
-          ><span id="current-time"> - Friday 13:00</span>
+          <strong id="city">Amsterdam</strong>
         </h3>
         <div class="row">
           <div class="col-5 current-weather">
@@ -109,6 +109,14 @@
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+      <div class="row footer-text">
+        <div class="col-6 source-link">
+          Open source code by Julia Zijderveld
+        </div>
+        <div class="col-6 last-updated-time">
+          Last updated: <span id="current-time"></span>
         </div>
       </div>
     </div>

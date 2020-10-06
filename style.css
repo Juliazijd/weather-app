@@ -81,3 +81,17 @@ ul {
 .forecast-header {
   padding-top: 20px;
 }
+
+.footer-text {
+  position: relative;
+  bottom: 120px;
+  padding: 0 10px;
+}
+
+.source-link {
+  text-align: left;
+}
+
+.last-updated-time {
+  text-align: right;
+}

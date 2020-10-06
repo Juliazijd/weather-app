@@ -1,15 +1,25 @@
-//function getTime(timestamp) {
-//    let currentTime = new Date(timestamp);
-//    let hours = currentTime.getHours();
-//    if (hours < 10) {
-//        hours = `0${hours}`;
-//        let minutes = currentTime.minutes();
-//        if (minutes < 10) {
-//            minutes = `0${hours}`;
-//            let day = currentTime.getDay();
-//
-//            return `- ${day} ${hours}:${minutes}`;
-//        }
+function getTime(timestamp) {
+  let currentTime = new Date(timestamp);
+  let hours = currentTime.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = currentTime.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${hours}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[currentTime.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
 
 function displayWeather(response) {
   let city = document.querySelector("#city");
