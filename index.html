@@ -24,15 +24,6 @@
           <div class="form-row" id="search-engine">
             <div class="col-5">
               <input
-                type="submit"
-                value="Check current location"
-                class="button-search-current"
-                id="search-current-location"
-              />
-            </div>
-            or
-            <div class="col-4">
-              <input
                 type="search"
                 placeholder="Enter a city..."
                 class="search-input"
@@ -42,6 +33,14 @@
             </div>
             <div class="col">
               <input type="submit" value="Search" class="submit-button" />
+            </div>
+            <div class="col-4">
+              <input
+                type="submit"
+                value="Check current location"
+                class="button-search-current"
+                id="search-current-location"
+              />
             </div>
           </div>
         </form>
@@ -61,7 +60,7 @@
             <ul class="current-conditions">
               <li>Feels like: <span id="feels-like-temp"></span>°C</li>
               <li>Humidity: <span id="humidity"></span>%</li>
-              <li>Wind strength: <span id="windspeed"></span></li>
+              <li>Windspeed: <span id="windspeed"></span>km/h</li>
             </ul>
           </div>
           <div class="col-7">

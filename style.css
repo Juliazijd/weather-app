@@ -31,6 +31,7 @@ h4 {
 }
 
 .search-input {
+  padding-right: 70px;
 }
 
 .submit-button {
@@ -47,6 +48,7 @@ h4 {
 
 .city-date-header {
   margin: 0;
+  font-size: 40px;
 }
 #current-temp {
   font-size: 50px;
@@ -83,9 +85,10 @@ ul {
 }
 
 .footer-text {
-  position: relative;
   bottom: 120px;
-  padding: 0 10px;
+  color: purple;
+  position: relative;
+  padding: 0 20px;
 }
 
 .source-link {
