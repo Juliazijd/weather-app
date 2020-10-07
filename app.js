@@ -200,12 +200,26 @@ function handlePosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "427b64eee1edb35b88796269421b55f1";
-  let apiUrlCurrentLocation = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeather);
 }
 
 function getPosition() {
   navigator.geolocation.getCurrentPosition(handlePosition);
+}
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#current-temp");
+  let fahrenheitTemp = Math.round((temperature.innerHTML * 5) / 9 + 32);
+  temperature.innerHTML = fahrenheitTemp;
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  //let temperature = document.querySelector("#current-temp");
+  //let fahrenheitTemp = Math.round(() * 5) / 9 + 32);
+  //temperature.innerHTML = fahrenheitTemp;
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -214,4 +228,10 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#search-current-location");
 currentLocationButton.addEventListener("click", getPosition);
 
-search("Amsterdam");
+let fahrenheitTemp = document.querySelector("#fahrenheit-link");
+fahrenheitTemp.addEventListener("click", displayFahrenheitTemp);
+
+//let celsiusTemp = document.querySelector("#celsius-link");
+//celsiusTemp.addEventListener("click", displayCelsiusTemp);
+
+search("New York");
