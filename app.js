@@ -253,4 +253,4 @@ fahrenheitTempElement.addEventListener("click", displayFahrenheitTemp);
 let celsiusTempElement = document.querySelector("#celsius-link");
 celsiusTempElement.addEventListener("click", displayCelsiusTemp);
 
-search("New York");
+search("Amsterdam");
