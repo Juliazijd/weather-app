@@ -37,6 +37,8 @@ function displayWeather(response) {
   let currentTime = document.querySelector("#current-time");
   let weatherIcon = document.querySelector("#weather-icon");
 
+  celsiusTemp = response.data.main.temp;
+
   city.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
   temperature.innerHTML = Math.round(response.data.main.temp);
@@ -66,9 +68,11 @@ function displayForecast(response) {
                     alt="${forecast.weather[0].description}"
                     class="forecast-icon"
                   />
-                  <strong id="forecast-temp-max">${Math.round(
-                    forecast.main.temp_max
-                  )}</strong>|${Math.round(forecast.main.temp_min)}°C
+                  <strong id="forecast-temp">${Math.round(
+                    forecast.main.temp
+                  )}°C </strong>| ${Math.round(
+    (forecast.main.temp * 5) / 9 + 32
+  )}°F
                    <div id="forecast-windspeed"> ${Math.round(
                      forecast.wind.speed * 3.29084
                    )}km/h</div>
@@ -87,9 +91,8 @@ function displayForecast(response) {
                     alt="${forecast.weather[0].description}"
                     class="forecast-icon"
                   />
-                  <strong id="forecast-temp-max">${Math.round(
-                    forecast.main.temp_max
-                  )}</strong>|${Math.round(forecast.main.temp_min)}°C
+                  <strong id="forecast-temp">${Math.round(forecast.main.temp)}°C
+  </strong>| ${Math.round((forecast.main.temp * 5) / 9 + 32)}°F
                    <div id="forecast-windspeed"> ${Math.round(
                      forecast.wind.speed * 3.29084
                    )}km/h</div>
@@ -108,9 +111,11 @@ function displayForecast(response) {
                     alt="${forecast.weather[0].description}"
                     class="forecast-icon"
                   />
-                  <strong id="forecast-temp-max">${Math.round(
-                    forecast.main.temp_max
-                  )}</strong>|${Math.round(forecast.main.temp_min)}°C
+                  <strong id="forecast-temp">${Math.round(
+                    forecast.main.temp
+                  )}°C </strong>| ${Math.round(
+    (forecast.main.temp * 5) / 9 + 32
+  )}°F
                    <div id="forecast-windspeed"> ${Math.round(
                      forecast.wind.speed * 3.29084
                    )}km/h</div>
@@ -129,9 +134,11 @@ function displayForecast(response) {
                     alt="${forecast.weather[0].description}"
                     class="forecast-icon"
                   />
-                  <strong id="forecast-temp-max">${Math.round(
-                    forecast.main.temp_max
-                  )}</strong>|${Math.round(forecast.main.temp_min)}°C
+                  <strong id="forecast-temp">${Math.round(
+                    forecast.main.temp
+                  )}°C </strong>| ${Math.round(
+    (forecast.main.temp * 5) / 9 + 32
+  )}°F
                    <div id="forecast-windspeed"> ${Math.round(
                      forecast.wind.speed * 3.29084
                    )}km/h</div>
@@ -150,9 +157,11 @@ function displayForecast(response) {
                     alt="${forecast.weather[0].description}"
                     class="forecast-icon"
                   />
-                  <strong id="forecast-temp-max">${Math.round(
-                    forecast.main.temp_max
-                  )}</strong>|${Math.round(forecast.main.temp_min)}°C
+                  <strong id="forecast-temp">${Math.round(
+                    forecast.main.temp
+                  )}°C </strong>| ${Math.round(
+    (forecast.main.temp * 5) / 9 + 32
+  )}°F
                    <div id="forecast-windspeed"> ${Math.round(
                      forecast.wind.speed * 3.29084
                    )}km/h</div>
@@ -172,8 +181,10 @@ function displayForecast(response) {
                     class="forecast-icon"
                   />
                   <strong id="forecast-temp-max">${Math.round(
-                    forecast.main.temp_max
-                  )}</strong>|${Math.round(forecast.main.temp_min)}°C
+                    forecast.main.temp
+                  )}°C </strong>| ${Math.round(
+    (forecast.main.temp * 5) / 9 + 32
+  )}°F
                    <div id="forecast-windspeed"> ${Math.round(
                      forecast.wind.speed * 3.29084
                    )}km/h</div>
@@ -211,16 +222,21 @@ function getPosition() {
 function displayFahrenheitTemp(event) {
   event.preventDefault();
   let temperature = document.querySelector("#current-temp");
-  let fahrenheitTemp = Math.round((temperature.innerHTML * 5) / 9 + 32);
+  celsiusTempElement.classList.remove("active");
+  fahrenheitTempElement.classList.add("active");
+  let fahrenheitTemp = Math.round((celsiusTemp * 5) / 9 + 32);
   temperature.innerHTML = fahrenheitTemp;
 }
 
 function displayCelsiusTemp(event) {
   event.preventDefault();
-  //let temperature = document.querySelector("#current-temp");
-  //let fahrenheitTemp = Math.round(() * 5) / 9 + 32);
-  //temperature.innerHTML = fahrenheitTemp;
+  let temperature = document.querySelector("#current-temp");
+  celsiusTempElement.classList.add("active");
+  fahrenheitTempElement.classList.remove("active");
+  temperature.innerHTML = Math.round(celsiusTemp);
 }
+
+let celsiusTemp = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
@@ -228,10 +244,10 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#search-current-location");
 currentLocationButton.addEventListener("click", getPosition);
 
-let fahrenheitTemp = document.querySelector("#fahrenheit-link");
-fahrenheitTemp.addEventListener("click", displayFahrenheitTemp);
+let fahrenheitTempElement = document.querySelector("#fahrenheit-link");
+fahrenheitTempElement.addEventListener("click", displayFahrenheitTemp);
 
-//let celsiusTemp = document.querySelector("#celsius-link");
-//celsiusTemp.addEventListener("click", displayCelsiusTemp);
+let celsiusTempElement = document.querySelector("#celsius-link");
+celsiusTempElement.addEventListener("click", displayCelsiusTemp);
 
 search("New York");
