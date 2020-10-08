@@ -58,18 +58,21 @@ ul {
 }
 
 .city-header {
-  margin: 0;
   font-size: 40px;
+  margin: 0;
+  padding-top: 10px;
 }
 
 .last-updated-time {
-  line-height: 10px;
   font-size: 20px;
-  padding: 20px 0;
+  padding: 20px;
+}
+
+#current-time {
+  font-weight: bold;
 }
 
 .current-weather {
-  padding-top: 20px;
   line-height: 25px;
 }
 
