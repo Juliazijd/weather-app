@@ -1,3 +1,10 @@
+import React from "react";
+import SearchForm from "./SearchForm.js"
+
+export default function App() {
+
+}
+
 function getTime(timestamp) {
   let currentTime = new Date(timestamp);
 
